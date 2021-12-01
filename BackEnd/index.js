@@ -38,6 +38,14 @@ const blueVagas = [
   },
 ];
 
+// 10°) CORS - permite a troca de recursos entre origens diferentes
+app.all("/*", (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  // especifica qual origem tem permição para fazr essa solicitação
+  res.header("Access-Control-Allow-Methods", "*");
+  next();
+});
+
 // 3°) JSON - JavaScript Object Notation
 // Falo para o express trabalhar com middleware de Json para trabalharmos com o formato JSON.
 app.use(express.json());
@@ -56,14 +64,15 @@ app.get("/vagas", (req, res) => {
   res.send(blueVagas);
 });
 
-// 9°) Endpoint[GET] /vagas/{id} - retornar para o cliente uma unica vaga de acordo com o seu id
+// 9°) Endpoint [GET] /vagas/{id} - retornar para o cliente uma unica vaga de acordo com o seu id
 app.get("/vagas/:id", (req, res) => {
-  // Acessar o id via a requisição
+  // Acessa o id via a requisicao
   const idParam = req.params.id;
-  // Buscar um item a lista de acordo com o seu id
-  // Procuro na lista uma vaga que contenha o id igual ao que eu recebi via parametro
+  // Buscar um item na lista de acordo com o seu id
+  // Procura na lista uma vaga que contenha o id igual ao que eu recebi via parametro
   const vagaEcontrada = blueVagas.find((vaga) => vaga.id == idParam);
-  //envio para o front-end a vaga que foi encontrata
+
+  // Envio para o front-end a vaga que encontrei
   res.send(vagaEcontrada);
 });
 
