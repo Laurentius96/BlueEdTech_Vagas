@@ -6,8 +6,8 @@ const lista = document.getElementById("lista");
 
 // Crio uma funcao onde é possivel realizar uma requisicao [GET] para a api
 const getVagas = async () => {
-  //  FETCH - É usado para se comunicar via requisicao http (GET, POST, PUT, PATCH, DELETE);
-  //  Response - é a resposta se a chamada da api foi feita com sucesso (status 200);
+  // FETCH - É usado para se comunicar via requisicao http (GET, POST, PUT, PATCH, DELETE);
+  // Response - é a resposta se a chamada da api foi feita com sucesso (status 200);
   // FETCH quando nao passada configuracao e apenas a url ele faz uma chamada do tipo [GET];
   // const chamadaApi = fetch(`${apiUrl}/vagas`)
   // chamadaApi.then((response) => {
