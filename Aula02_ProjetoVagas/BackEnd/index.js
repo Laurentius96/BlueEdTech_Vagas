@@ -6,7 +6,7 @@ const express = require("express");
 // 2°) Inicializar o express no nosso arquivo JavaScript para ele posso assumir as funções do express
 const app = express();
 
-// 7°)
+// 7°) Variável que receberá o CRUD
 const blueVagas = [
   {
     id: 1,

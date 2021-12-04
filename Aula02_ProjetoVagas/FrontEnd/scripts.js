@@ -1,10 +1,10 @@
-// Salvar a url do backend em uma variavel para ser ultiliza depois na hora da chamada da api
+// 12°) Salvar a url do backend em uma variavel para ser ultiliza depois na hora da chamada da api
 const apiUrl = "http://localhost:3000";
 
-// Estou mapeando o elemento lista (<table></table>) do html.
+// 14°) Estou mapeando o elemento lista (<table></table>) do html.
 const lista = document.getElementById("lista");
 
-// Crio uma funcao onde é possivel realizar uma requisicao [GET] para a api
+// 13°) Crio uma funcao onde é possivel realizar uma requisicao [GET] para a api
 const getVagas = async () => {
   // FETCH - É usado para se comunicar via requisicao http (GET, POST, PUT, PATCH, DELETE);
   // Response - é a resposta se a chamada da api foi feita com sucesso (status 200);
@@ -26,7 +26,7 @@ const getVagas = async () => {
     lista.insertAdjacentHTML(
       "beforeend",
       `
-            <tr>
+            <tr>  
                 <td>${vaga.id}</td>
                 <td>${vaga.empresa}</td>
                 <td>${vaga.oportunidade}</td>
@@ -40,6 +40,7 @@ const getVagas = async () => {
 
 getVagas();
 
+// 16°)
 const escolherVaga = async () => {
   // Buscando o que o usuario digitou no input
   const idDigitado = document.getElementById("idVaga").value;
@@ -62,3 +63,4 @@ const escolherVaga = async () => {
     `
   );
 };
+
