@@ -1,5 +1,5 @@
 /**
- *
+ * Arquivo: Responsável pelo tratamento das informações, lidando com regras de negócio e contato com o banco de dados ( no nosso caso um array de objetos) .
  *
  */
 
@@ -36,16 +36,26 @@ const blueVagas = [
 ];
 
 // 20°)
-const getVagasService = () => {
-  return blueVagas;
+const getVagasService = () => blueVagas;
+
+// OU
+
+// const getVagasService = () => {
+//   return blueVagas;
+// };
+
+// 21°) Versão reduzida pois só possui um retorno
+const getVagasByIdService = (idParam) => {
+  return blueVagas.find((vaga) => vaga.id == idParam);
 };
 
-// 21°)
-const getVagasByIdService = (idParam) => {
-  blueVagas.find((vaga) => {
-    return vaga.id == idParam;
-  });
-};
+// OU
+
+// const getVagasByIdService = (idParam) => {
+//   return blueVagas.find((vaga) => {
+//     return vaga.id == idParam;
+//   });
+// };
 
 // 18°)
 module.exports = {

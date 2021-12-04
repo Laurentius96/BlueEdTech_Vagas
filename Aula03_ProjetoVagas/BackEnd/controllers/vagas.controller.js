@@ -1,6 +1,5 @@
 /**
- * Arquivo: Local onde vai ficar as guardadas as funções das requisições acionadas pela rotas (usuário)
- *
+ * Arquivo: Local onde vai ficar as guardadas as funções erão chamadas pelo route.js, como esse arquivo é responsável pelas respostas das requisições e o tratamento básico dos dados
  */
 
 // 22°) Importo o service para poder ter aceeso as funções que cuidam dos dados
@@ -8,7 +7,7 @@ const vagasService = require("../services/vagas.service");
 
 // 12°) Retorna um lista de vagas pre cadastradas para o front-end
 const getVagas = (req, res) => {
- const vagas =  vagasService.getVagasService();
+  const vagas = vagasService.getVagasService();
   res.send(vagas);
 };
 
