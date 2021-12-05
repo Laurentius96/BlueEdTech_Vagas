@@ -27,7 +27,7 @@ const postVaga = (req, res) => {
   // Enviando a vaga que recebeu via corpo de requisição para o serviço adicionar na lista
   const newVaga = vagasService.addVaga(vaga);
   res.send({
-    message: `Vaga ${newVaga.oportunidade} na espresa ${newVaga.empresa} cadastrada com secesso!`,
+    message: `Vaga ${newVaga.oportunidade} na empresa ${newVaga.empresa} cadastrada com secesso!`,
   });
 };
 
