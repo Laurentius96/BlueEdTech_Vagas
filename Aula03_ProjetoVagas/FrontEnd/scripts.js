@@ -27,7 +27,7 @@ const getVagas = async () => {
       "beforeend",
       `
             <tr>  
-                <td>${vaga.id}</td>
+                <th scope="row">${vaga.id}</td>
                 <td>${vaga.empresa}</td>
                 <td>${vaga.oportunidade}</td>
                 <td>${vaga.tipo}</td>
@@ -54,7 +54,7 @@ const escolherVaga = async () => {
     "beforeend",
     `
         <tr>
-            <td>${vaga.id}</td>
+            <th scope="row">${vaga.id}</td>
             <td>${vaga.empresa}</td>
             <td>${vaga.oportunidade}</td>
             <td>${vaga.tipo}</td>
