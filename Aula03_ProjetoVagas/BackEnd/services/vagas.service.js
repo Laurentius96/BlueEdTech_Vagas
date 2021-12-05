@@ -57,8 +57,20 @@ const getVagasByIdService = (idParam) => {
 //   });
 // };
 
+// 23°) Cadastra uma nova vaga(obj) na lista blueVagas
+const addVaga = (newVaga) => {
+  // Monto um id falso para a minha nova vaga
+  const newId = blueVagas.length + 1;
+  newVaga.id = newId;
+  console.log(newVaga);
+  // Add essa nova vaga no array
+  blueVagas.push(newVaga);
+  return newVaga;
+};
+
 // 18°)
 module.exports = {
   getVagasService,
   getVagasByIdService,
+  addVaga,
 };

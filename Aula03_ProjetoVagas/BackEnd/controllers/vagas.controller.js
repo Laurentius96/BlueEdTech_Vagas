@@ -20,8 +20,20 @@ const getVagasById = (req, res) => {
   res.send(vaga);
 };
 
+// 24°) Ira cadastrar uma vaga de acordo com o objeto vindo do Front
+const postVaga = (req, res) => {
+  // Pegamos o objeto da requisição para ser cadastrado
+  const vaga = req.body;
+  // Enviando a vaga que recebeu via corpo de requisição para o serviço adicionar na lista
+  const newVaga = vagasService.addVaga(vaga);
+  res.send({
+    message: `Vaga ${newVaga.oportunidade} na espresa ${newVaga.empresa} cadastrada com secesso!`,
+  });
+};
+
 // 14°) Exportando as funções para serem usadas nas rotas
 module.exports = {
   getVagas,
   getVagasById,
+  postVaga,
 };
