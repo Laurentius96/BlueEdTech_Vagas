@@ -31,9 +31,35 @@ const postVaga = (req, res) => {
   });
 };
 
+// 26°) Vai receber um objeto (body) e um id(param) para poder atualizar a vaga com o objeto de acordo com o seu id
+const putVaga = (req, res) => {
+  // Pego o parametro via requisição
+  const idParam = req.params.id;
+  // Pego o objeto recebido via requisição
+  const vagaEdit = req.body;
+  const edicao = vagasService.putVaga(idParam, vagaEdit);
+  if (edicao) {
+    res.send({ message: `A vaga foi editada com sucesso!` });
+  } else {
+    res
+      .status(404)
+      .send({ message: `Não foi eencontrado vaga com esse ID para editar.` });
+  }
+};
+
+// 30°) Vai excluir um item da lista e devolver a msg de exclusao para o front-end
+const deleteVaga = (req, res) => {
+  const vagaExcluida = vagasService.deleteVaga(req.params.id);
+  res.send(
+    `A vaga ${vagaExcluida.oportunidade} da empresa ${vagaExcluida.empresa} excluida com sucesso.`
+  );
+};
+
 // 14°) Exportando as funções para serem usadas nas rotas
 module.exports = {
   getVagas,
   getVagasById,
   postVaga,
+  putVaga,
+  deleteVaga,
 };

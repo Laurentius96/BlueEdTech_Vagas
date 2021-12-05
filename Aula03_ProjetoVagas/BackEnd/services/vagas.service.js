@@ -68,9 +68,49 @@ const addVaga = (newVaga) => {
   return newVaga;
 };
 
+// 27°) Vai procurar um objeto de acordo com seu id e trocar os seus valores
+const putVaga = (idParam, vagaEdit) => {
+  // // Criamos o campo id dentro do objeto para ser substituid
+  // vagaEdit["id"] = parseInt(id);
+  // const index = id - 1;
+  // // Busco o item na lista de acordo com o seu index
+  // blueVagas[index] = vagaEdit;
+  // return vagaEdit;
+
+  // Busco o indece da vaga que ele acha com id que estou passando
+  const index = blueVagas.findIndex((vaga) => vaga.id == idParam);
+  // Verifico se realmente encontrou um indice valido na lista
+  if (index >= 0) {
+    // SPREAD OPERATOR ...
+    // Faz um espelho da vaga na lista e um espelho da vaga editada e junta as duas trocando apenas o que é necessario
+    blueVagas[index] = {
+      ...blueVagas[index],
+      ...vagaEdit,
+    };
+    // Retornamos um boleano true para o controller podet saber que a edição foi feita com sucesso.
+    return true;
+  } else {
+    console.log("Não existe vaga com esse ID");
+    // Retornamos um boleano false para o controller podet saber que a edição teve um erro.
+    return false;
+  }
+};
+
+// 29°)
+const deleteVaga = (idParam) => {
+  const index = blueVagas.findIndex((vaga) => vaga.id == idParam);
+  // startnumber = qual a posição que deve ser iniciada a exclusao
+  // deleCount = quantidade de items para ser excluido
+  const vagaExcluida = blueVagas[index];
+  blueVagas.splice(index, 1);
+  return vagaExcluida;
+};
+
 // 18°)
 module.exports = {
   getVagasService,
   getVagasByIdService,
   addVaga,
+  putVaga,
+  deleteVaga,
 };
