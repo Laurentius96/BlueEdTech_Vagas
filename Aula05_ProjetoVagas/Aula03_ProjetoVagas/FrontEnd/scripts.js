@@ -62,3 +62,48 @@ const escolherVaga = async () => {
     `
   );
 };
+
+// 3°) [POST] que vai enviar os dados do front-ent para o backend
+const postVaga = async () => {
+  // mapear os imputs com os dados que o usuário digitou
+  const empresa = document.getElementById("empresa").value;
+  const oportunidade = document.getElementById("oportunidade").value;
+  const tipo = document.getElementById("tipo").value;
+  const salario = document.getElementById("salario").value;
+  console.log(empresa, oportunidade, tipo, salario);
+
+  const vaga = {
+    empresa,
+    oportunidade,
+    tipo,
+    salario,
+  };
+
+  console.log(vaga);
+
+  // Faz a chamada para a api com alguma configurações...
+  const response = await fetch(`${apiUrl}/vagas/add`, {
+    method: "POST",
+    //
+    headers: {
+      "Content-Type": "application/json",
+    },
+    // JSON stringify = transforma um objeto/array JS em um JSON string...
+    body: JSON.stringify(vaga),
+  });
+  const data = await response.json();
+  alert(data.message);
+
+  lista.innerHTML = " ";
+  getVagas();
+  limpaCampos();
+ 
+};
+
+// 4°) Função para limpar o texto digitado no campo de cadastro
+const limpaCampos = () => {
+  document.getElementById("empresa").value = " ";
+  document.getElementById("oportunidade").value = " ";
+  document.getElementById("tipo").value = " ";
+  document.getElementById("salario").value = " ";
+};
